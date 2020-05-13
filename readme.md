@@ -1,6 +1,33 @@
 ## rooland
  
 Source code of the rooland blog.
+
+## Clone project via GIT
+
+```
+git clone https://github.com/dignityinside/rooland_laravel
+cd rooland_laravel
+```
+
+## Install all dependencies via Composer
+
+```
+composer install
+```
+
+## Apply migrations
+
+Setup DB settings in ".env" and run migrations.
+
+```
+php artisan migrate
+```
+
+## Install all node.js dependencies via NPM and run build
+
+```
+npm install && npm run dev
+```
  
 ## Contributing
  
