@@ -45,7 +45,6 @@ class ArticlePolicy
         }
 
         return false;
-
     }
 
     /**

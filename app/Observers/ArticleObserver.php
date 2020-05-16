@@ -46,7 +46,8 @@ class ArticleObserver
      *
      * @return string
      */
-    private function generateUniqueSlug(Article $article): string {
+    private function generateUniqueSlug(Article $article): string
+    {
 
         $tempSlug = Str::slug($article->title);
         $slug = Article::where('slug', $tempSlug)->first();

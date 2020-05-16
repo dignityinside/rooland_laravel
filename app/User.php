@@ -49,7 +49,8 @@ class User extends Authenticatable
      *
      * @return boolean
      */
-    public function isAdmin(): bool {
+    public function isAdmin(): bool
+    {
         return (int) $this->is_admin;
     }
 }

@@ -34,5 +34,4 @@ class Material extends Model
             self::STATUS_PUBLIC => __('material.status_public'),
         ];
     }
-
 }
