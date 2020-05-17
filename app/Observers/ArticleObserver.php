@@ -25,6 +25,8 @@ class ArticleObserver
         if (empty($article->slug)) {
             $article->slug = $this->generateUniqueSlug($article);
         }
+
+        $article->content = \App\Helpers\HtmlPurifier::process($article->content);
     }
 
     /**
@@ -37,6 +39,8 @@ class ArticleObserver
         if (empty($article->slug)) {
             $article->slug = $this->generateUniqueSlug($article);
         }
+
+        $article->content = \App\Helpers\HtmlPurifier::process($article->content);
     }
 
     /**
