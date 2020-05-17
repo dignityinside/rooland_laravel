@@ -40,7 +40,7 @@
                 @endif
 
                 <div>
-                    {{ \App\Helpers\Text::hideCut($article->content) }}
+                    {!! \App\Helpers\Text::hideCut(\App\Helpers\Markdown::process($article->content)) !!}
                 </div>
 
                 @if ($article->hits > 0)
