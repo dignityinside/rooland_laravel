@@ -34,9 +34,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a class="dropdown-item" href="/">
-                            @lang('articles.menu_item_home')
-                        </a>
+                        <li class="nav-item">
+                            <a class="dropdown-item {{ Route::currentRouteNamed('articles.home') ? 'active' : '' }}" href="/">
+                                @lang('articles.menu_item_home')
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -44,11 +46,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link{{ Route::currentRouteNamed('login') ? ' active' : '' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link{{ Route::currentRouteNamed('register') ? ' active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -60,7 +62,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     @if (Auth::user()->isAdmin())
-                                        <a class="dropdown-item" href="/articles">
+                                        <a class="dropdown-item{{ Route::currentRouteNamed('articles.index') ? ' active' : '' }}" href="{{ route('articles.index') }}">
                                             @lang('articles.menu_item_index')
                                         </a>
                                     @endif
