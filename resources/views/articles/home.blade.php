@@ -30,7 +30,7 @@
                         </div>
                     @endif
                     <div>
-                        {!! \App\Helpers\Text::hideCut(\App\Helpers\Markdown::process($article->content)) !!}
+                        {!! \App\Helpers\Text::cut(\App\Helpers\Markdown::process($article->content)) !!}
                     </div>
                 </div>
             </div>
