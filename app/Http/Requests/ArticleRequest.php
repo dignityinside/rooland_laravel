@@ -31,7 +31,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'category_id' => ['required', 'integer'],
+            'category_id' => ['integer'],
             'title' => ['required', 'min:3', 'max:255'],
             'content' => ['required', 'string'],
             'slug' => ['nullable', 'alpha_dash', 'min:3', 'max:255'],
