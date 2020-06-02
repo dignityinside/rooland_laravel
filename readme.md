@@ -28,6 +28,12 @@ php artisan migrate
 ```
 npm install && npm run dev
 ```
+
+## Run phpunit tests
+
+```
+composer phpunit
+```
  
 ## Contributing
  
