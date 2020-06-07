@@ -37,4 +37,5 @@ return [
     'home_headline'               => 'Articles',
     'empty_text'                  => 'Hmm, couldn\'t find anything.',
     'menu_item_home'              => 'Articles',
+    'link_more'                   => 'More',
 ];

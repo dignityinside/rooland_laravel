@@ -84,12 +84,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container">
-                @yield('content')
-                <div class="text-center">
-                    © 2020 {{ config('app.name', 'rooland') }}
-                </div>
+        <main class="py-4 container">
+            @yield('content')
+            <div class="text-center py-3">
+                © 2020 {{ config('app.name', 'rooland') }}. @lang('app.all_rights_reserved').<br>
+                @lang('app.copyright_text')
             </div>
         </main>
     </div>

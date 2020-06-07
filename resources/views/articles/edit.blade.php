@@ -6,29 +6,35 @@
 
     <div id="articles_edit">
 
-        <h1>@lang('articles.edit_headline')</h1>
+        <h1 class="text-white pb-3">
+            @lang('articles.edit_headline')
+        </h1>
 
-        @include('partials.message')
+        <div class="bg-white px-3 pt-3 pb-1 rounded-lg">
 
-        <form method="post" action="{{ route('articles.update', ['article' => $article->slug]) }}">
+            @include('partials.message')
 
-            @method('PATCH')
-            @csrf
+            <form method="post" action="{{ route('articles.update', ['article' => $article->slug]) }}">
 
-            @include('articles.form')
+                @method('PATCH')
+                @csrf
 
-        </form>
+                @include('articles.form')
 
-        <form method="post" action="{{ route('articles.destroy', ['article' => $article->slug]) }}">
+            </form>
 
-            @method('DELETE')
-            @csrf
+            <form method="post" action="{{ route('articles.destroy', ['article' => $article->slug]) }}">
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-submit">@lang('articles.button_delete')</button>
-            </div>
+                @method('DELETE')
+                @csrf
 
-        </form>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger btn-submit">@lang('articles.button_delete')</button>
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
 

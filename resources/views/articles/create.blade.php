@@ -6,13 +6,19 @@
 
     <div id="articles_create">
 
-        <h1>@lang('articles.create_headline')</h1>
+        <h1 class="text-white pb-3">
+            @lang('articles.create_headline')
+        </h1>
 
-        @include('partials.message')
+        <div class="bg-white px-3 pt-3 pb-1 rounded-lg">
 
-        <form method="POST" action="{{ route('articles.store') }}">
-            @include('articles.form')
-        </form>
+            @include('partials.message')
+
+            <form method="POST" action="{{ route('articles.store') }}">
+                @include('articles.form')
+            </form>
+
+        </div>
 
     </div>
 
