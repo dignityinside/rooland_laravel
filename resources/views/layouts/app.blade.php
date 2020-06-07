@@ -27,7 +27,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'rooland') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="@lang('app.toggle_navigation')">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -46,11 +46,15 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link{{ Route::currentRouteNamed('login') ? ' active' : '' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link{{ Route::currentRouteNamed('login') ? ' active' : '' }}" href="{{ route('login') }}">
+                                    @lang('app.login')
+                                </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link{{ Route::currentRouteNamed('register') ? ' active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link{{ Route::currentRouteNamed('register') ? ' active' : '' }}" href="{{ route('register') }}">
+                                        @lang('app.register')
+                                    </a>
                                 </li>
                             @endif
                         @else
@@ -70,7 +74,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        @lang('app.logout')
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

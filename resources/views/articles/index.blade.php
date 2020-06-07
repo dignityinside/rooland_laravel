@@ -46,7 +46,7 @@
                             <tr>
                                 <td>{{ $article->id }}</td>
                                 <td>{{ $article->title }}</td>
-                                <td>{{ $article->status_id }}</td>
+                                <td>{{ \App\Material::getStatus()[$article->status_id] }}</td>
                                 <td>{{ $article->hits }}</td>
                                 <td>{{ $article->comments ?? 0 }}</td>
                                 <td>
