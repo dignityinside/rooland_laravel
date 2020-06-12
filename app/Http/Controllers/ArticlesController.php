@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
+use App\Material;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -47,11 +49,30 @@ class ArticlesController extends Controller
      */
     public function home(): View
     {
-        $articles = Article::where('status_id', 'public')
-            ->orderBy('created_at', 'desc')
+        $articles = Article::where('status_id', Material::STATUS_PUBLIC)
+            ->latest()
             ->paginate(config('articles.per_page'));
 
         return view('articles.home')->with('articles', $articles);
+    }
+
+    /**
+     * Display the article from specified category.
+     *
+     * @param Article $article
+     *
+     * @return View
+     */
+    public function category($slug): View
+    {
+        $category = Category::where('material_id', Material::MATERIAL_ARTICLE_ID)->where('slug', $slug)->firstOrFail();
+
+        $articles = Article::where('status_id', Material::STATUS_PUBLIC)
+            ->where('category_id', $category->id)
+            ->latest()
+            ->paginate(config('articles.category_per_page'));
+
+        return view('articles.category')->withArticles($articles)->withCategory($category);
     }
 
     /**
@@ -63,7 +84,8 @@ class ArticlesController extends Controller
      */
     public function create(Article $article): View
     {
-        return view('articles.create')->with(['article' => $article]);
+        $categories = Category::where('material_id', Material::MATERIAL_ARTICLE_ID)->get();
+        return view('articles.create')->with(['article' => $article, 'categories' => $categories]);
     }
 
     /**
@@ -101,7 +123,8 @@ class ArticlesController extends Controller
      */
     public function edit(Article $article): View
     {
-        return view('articles.edit')->with(['article' => $article]);
+        $categories = Category::where('material_id', Material::MATERIAL_ARTICLE_ID)->get();
+        return view('articles.edit')->with(['article' => $article, 'categories' => $categories]);
     }
 
     /**

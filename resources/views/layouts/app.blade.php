@@ -69,6 +69,9 @@
                                         <a class="dropdown-item{{ Route::currentRouteNamed('articles.index') ? ' active' : '' }}" href="{{ route('articles.index') }}">
                                             @lang('articles.menu_item_index')
                                         </a>
+                                        <a class="dropdown-item{{ Route::currentRouteNamed('categories.index') ? ' active' : '' }}" href="{{ route('categories.index') }}">
+                                            @lang('categories.menu_item_index')
+                                        </a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

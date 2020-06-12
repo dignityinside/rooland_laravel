@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 /**
  * Class Article
  *
@@ -27,18 +29,6 @@ class Article extends Material
     ];
 
     /**
-     * Returns categories
-     *
-     * @return string[]
-     */
-    public function getCategories(): array
-    {
-        return [
-            0 => __('articles.no_category'),
-        ];
-    }
-
-    /**
      * Get the route key for the model.
      *
      * @return string
@@ -46,5 +36,13 @@ class Article extends Material
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class)->where('material_id', self::MATERIAL_ARTICLE_ID);
     }
 }

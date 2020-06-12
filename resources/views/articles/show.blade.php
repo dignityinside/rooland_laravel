@@ -58,12 +58,16 @@
                                 </span>
                             </div>
                         @endif
-                        <div class="px-2">
-                            <i class="far fa-folder"></i>
-                            <span class="px-1">
-                                {{$article->category_id}}
-                            </span>
-                        </div>
+                        @if ($article->category)
+                            <div class="px-2">
+                                <i class="far fa-folder"></i>
+                                <span class="px-1">
+                                    <a href="{{ route('articles.category', ['id' => $article->category->slug]) }}">
+                                        {{$article->category->name}}
+                                    </a>
+                                </span>
+                            </div>
+                        @endif
                     </div>
 
                 </div>

@@ -22,6 +22,9 @@ class Material extends Model
     /** @var string */
     public const DATE_FORMAT = 'd.m.Y';
 
+    /** @var int */
+    public const MATERIAL_ARTICLE_ID = 1;
+
     /**
      * Returns material status
      *
@@ -32,6 +35,18 @@ class Material extends Model
         return [
             self::STATUS_DRAFT  => __('material.status_draft'),
             self::STATUS_PUBLIC => __('material.status_public'),
+        ];
+    }
+
+    /**
+     * Returns materials
+     *
+     * @return string[]
+     */
+    public static function getMaterials(): array
+    {
+        return [
+            self::MATERIAL_ARTICLE_ID => __('material.article_name'),
         ];
     }
 }

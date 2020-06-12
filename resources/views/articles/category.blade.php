@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', __('articles.home_headline'))
+@section('title', $category->name)
 
 @section('content')
 
-    <div id="articles_home">
+    <div id="articles_category">
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h1 class="text-white">
-                    <i class="fas fa-feather px-2"></i>
-                    @lang('articles.home_headline')
+                    <i class="fas fa-folder px-2"></i>
+                    {{ $category->name }}
                 </h1>
             </div>
         </div>

@@ -5,9 +5,9 @@
         <div class="form-group">
             <label for="category_id">@lang('articles.form_label_category')</label>
             <select class="form-control" name="category_id" id="category_id">
-                @foreach ($article->getCategories() as $key => $value)
-                    <option value="{{ $key }}" {{ ( $key == old('category_id', $article->category_id ?? null)) ? 'selected' : '' }}>
-                        {{ $value }}
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ ( $category->id == old('category_id', $article->category_id ?? null)) ? 'selected' : '' }}>
+                        {{ $category->name }}
                     </option>
                 @endforeach
             </select>
