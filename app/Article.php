@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * Class Article
@@ -44,5 +45,21 @@ class Article extends Material
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class)->where('material_id', self::MATERIAL_ARTICLE_ID);
+    }
+
+    /**
+     * @return MorphMany
+     */
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id')->latest();
+    }
+
+    /**
+     * @return int
+     */
+    public function allCommentsCount(): int
+    {
+        return $this->morphMany(Comment::class, 'commentable')->count();
     }
 }

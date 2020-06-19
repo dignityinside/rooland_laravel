@@ -48,7 +48,7 @@
                                 <td>{{ $article->title }}</td>
                                 <td>{{ \App\Material::getStatus()[$article->status_id] }}</td>
                                 <td>{{ $article->hits }}</td>
-                                <td>{{ $article->comments ?? 0 }}</td>
+                                <td>{{ $article->allCommentsCount() ?? 0 }}</td>
                                 <td>
                                     <a href="{{ route('articles.show', ['article' => $article->slug]) }}">
                                         <i class="far fa-eye"></i>

@@ -74,7 +74,8 @@
 
                 @if ($article->allow_comments)
                     <div class="px-2 py-3">
-                        @lang('articles.comments')
+                        <h3 class="py-1 text-white">@lang('articles.comments')</h3>
+                        <comments endpoint="{{ route('articles.comments.index', $article) }}"></comments>
                     </div>
                 @endif
 

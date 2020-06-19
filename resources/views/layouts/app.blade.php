@@ -19,6 +19,12 @@
 
     <!-- Scripts -->
     @yield('js_head')
+
+    <script>
+        window.user = {
+            authenticated: {{ auth()->check() ? 'true' : 'false' }}
+        }
+    </script>
 </head>
 <body>
     <div id="app">

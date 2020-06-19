@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -52,5 +53,21 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return (int) $this->is_admin;
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function comments(): hasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * @return string
+     */
+    public function avatar(): string
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=45&d=mm';
     }
 }

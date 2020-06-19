@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,15 @@ Auth::routes();
 Route::get('/', 'ArticlesController@home')->name('articles.home');
 Route::resource('/articles', 'ArticlesController');
 Route::get('/articles/category/{id}', 'ArticlesController@category')->name('articles.category');
+
+Route::resource('/articles/{article}/comments', 'Articles\ArticleCommentController', [
+    'names' => [
+        'index' => 'articles.comments.index'
+    ]
+]);
+
+Route::resource('/comments', 'Comments\CommentController');
+Route::resource('/comments/{comment}/replies', 'Comments\CommentReplyController');
 
 Route::resource('/categories', 'CategoriesController');
 

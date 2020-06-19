@@ -26,7 +26,9 @@
                         @if ($article->allow_comments)
                             <div class="px-2">
                                 <i class="far fa-comments"></i>
-                                <span class="px-1">0</span>
+                                <span class="px-1">
+                                    {{ $article->allCommentsCount() }}
+                                </span>
                             </div>
                         @endif
                     </div>
